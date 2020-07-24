@@ -38,8 +38,8 @@ public class ProductMgr {
 	public void delete(int num) {
 		for (int i = 0; i < index; i++) {
 			if (product[i].getProNum() == num) {
-				for(int j=i;j<index;j++) {
-					product[j]=product[j+1];
+				for (int j = i; j < index; j++) {
+					product[j] = product[j + 1];
 				}
 				i--;
 				index--;
