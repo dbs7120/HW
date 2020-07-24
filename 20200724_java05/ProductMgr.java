@@ -36,11 +36,13 @@ public class ProductMgr {
 	}
 
 	public void delete(int num) {
-		for (int i = 0; i < index ; i++) {
+		for (int i = 0; i < index; i++) {
 			if (product[i].getProNum() == num) {
-				product[i] = product[index -1];
-				index--;		
-				break;
+				for(int j=i;j<index;j++) {
+					product[j]=product[j+1];
+				}
+				i--;
+				index--;
 			}
 		}
 	}
