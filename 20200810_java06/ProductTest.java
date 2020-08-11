@@ -83,7 +83,7 @@ public class ProductTest {
 
 				break;
 			case 2:
-				System.out.println(">제고 전체 출력");
+				System.out.println(">재고 전체 출력");
 				mgr.showAll();
 				break;
 			case 3:
@@ -110,7 +110,7 @@ public class ProductTest {
 
 			case 6:
 				System.out.println(">냉장고재고 출력");
-				mgr.searchTV();
+				mgr.searchRefrigerator();
 				break;
 
 			case 7:

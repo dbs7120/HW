@@ -100,6 +100,7 @@ public class ProductMgr {
 
 	}
 
+
 	public void remove(int proNum) {
 		boolean check = false;
 		for (int i = 0; i < index; i++) {
