@@ -23,13 +23,18 @@ public class ProductTest {
 		Scanner sc = new Scanner(System.in);
 
 		while (true) { // start program
-			System.out.println("<<<____________Abc디지털 대리점 재고관리____________>>>");
-			System.out.println("│\t\t1. 제품저장\t\t\t│"); // C
-			System.out.println("│\t\t2. 제품목록\t\t\t│"); // R
-			System.out.println("│\t\t3. 재고품목 금액변경\t\t\t│"); // U
-			System.out.println("│\t\t4. 제품삭제\t\t\t│"); // D
-			System.out.println("│\t\t0. 종료\t\t\t\t│");
-			System.out.println("<<<___________________________________________>>>");
+			
+			
+			System.out.println("┌───────────────────── Abc digital Management ───────────────────┐");
+			System.out.println("│\t\t\t1. 제품저장\t\t\t\t │");
+			System.out.println("│\t\t\t2. 제품목록\t\t\t\t │");
+			System.out.println("│\t\t\t3. 제품가격변경\t\t\t\t │");
+			System.out.println("│\t\t\t4. 제품삭제\t\t\t\t │");
+			System.out.println("│\t\t\t0. 프로그램 종료\t\t\t\t │");
+			System.out.println("└────────────────────────────────────────────────────────────────┘");
+			
+			
+
 			menu = sc.nextInt();
 			sc.nextLine();
 
@@ -142,7 +147,6 @@ public class ProductTest {
 
 			case 0:
 				System.out.println("프로그램을 종료합니다.");
-				dao.endProgram();
 				break;
 
 			}
