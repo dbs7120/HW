@@ -1,129 +1,66 @@
-package d0807;
+package d0825;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
-class Location { // 위치 좌표
-	int y;
-	int x;
-
-	public Location(int y, int x) {
-		this.y = y;
-		this.x = x;
-	}
-}
+// BOJ1074 Z
 
 public class homework {
 
-	static int[][] cheese;
-	static boolean[][] visited;
-
-	static int[] dy = { -1, 1, 0, 0 }; // 4 방위 y
-	static int[] dx = { 0, 0, -1, 1 }; // 4 방위 x
-	static int N;
+	static int N, R, C;
+	static int count = 0;
+	static int length;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();
-		for (int t = 1; t <= T; t++) {
-			N = sc.nextInt();
+		N = sc.nextInt();
+		R = sc.nextInt();
+		C = sc.nextInt();
 
-			cheese = new int[N][N];
+		length = 1 << N; // 찾게되는 배열의 크기는 2^N
 
-			int minVal = Integer.MAX_VALUE;
-			int maxVal = Integer.MIN_VALUE;
+		recur(0, 0, length);
 
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					cheese[i][j] = sc.nextInt();
-					if (minVal > cheese[i][j])// 입력값중 최소 맛
-						minVal = cheese[i][j];
-
-					if (maxVal < cheese[i][j])// 입력값중 최대 맛
-						maxVal = cheese[i][j];
-				}
-			}
-
-			int ans = 1; // 최소덩어리는 1이상
-
-			// 가장낮은영역 ~ 가장큰영역 반복(입력값최대값 이상값은 무조건 0)
-			for (int h = minVal; h < maxVal; h++) {
-				visited = new boolean[N][N];
-
-				int count = 0; // 남은 지점 카운팅
-				for (int i = 0; i < N; i++) {
-					for (int j = 0; j < N; j++) {
-						if (!visited[i][j] && cheese[i][j] > h) {
-							bfs(i, j, h); // BFS/DFS 시작 조건: 방문X && 해당 지점 맛보다 높아야함
-							// dfs(i, j, h);
-
-							count++;
-						}
-
-					}
-				}
-				if (ans < count)
-					ans = count;
-			}
-			System.out.println("#" + t + " " + ans);
-
-		}
+//
+//		int[][] map = new int[length][length];
+//		for (int i = 0; i < length; i++) {
+//			for (int j = 0; j < length; j++) {
+//				if (j % 2 == 0 && i % 2 == 0)
+//					map[i][j] = 4 * i + 2 * j;
+//				else if (j % 2 == 1 && i % 2 == 0)
+//					map[i][j] = 4 * i + 2 * j - 1;
+//				else if (j % 2 == 0 && i % 2 == 1) {
+//					map[i][j] = 4 * i - 1 + 2 * j - 1;
+//				} else {
+//					map[i][j] = (4 * i - 1) + (2 * j - 2);
+//				}
+//			}
+//		}
+//		for (int[] e : map) {
+//			for (int f : e) {
+//				System.out.print(f + " ");
+//			}
+//			System.out.println();
+//		}
 
 		sc.close();
 
 	}
 
-	// dfs
-	private static void dfs(int startY, int startX, int startH) {
-		if (visited[startY][startX]) {
+	public static void recur(int x, int y, int size) {
+
+		if (size == 1) {
+			if (x == R && y == C) {
+				System.out.println(count); // 종료조건 체크
+			}
+			count++;
 			return;
 		}
 
-		visited[startY][startX] = true;
-
-		for (int d = 0; d < 4; d++) {
-			int ny = startY + dy[d];
-			int nx = startX + dx[d];
-
-			if (ny < 0 || nx < 0 || ny >= N || nx >= N) {
-				continue;
-			}
-			if (cheese[ny][nx] > startH && !visited[ny][nx]) {
-				dfs(ny, nx, startH);
-			}
-
-		}
-
-	}
-
-	// bfs
-	private static void bfs(int startY, int startX, int height) {
-
-		Queue<Location> q = new LinkedList<Location>();
-
-		if (cheese[startY][startX] > height) {
-			q.offer(new Location(startY, startX));
-			visited[startY][startX] = true;
-			while (!q.isEmpty()) {
-				Location temp = q.poll();
-				for (int d = 0; d < 4; d++) {
-					int ny = temp.y + dy[d];
-					int nx = temp.x + dx[d];
-					if (ny < 0 || nx < 0 || ny >= N || nx >= N) {
-						continue;
-					}
-					if (visited[ny][nx])
-						continue;
-					if (cheese[ny][nx] > height) {
-						q.offer(new Location(ny, nx));
-						visited[ny][nx] = true;
-					}
-
-				}
-			}
-		}
-
+		// 2*2 모양으로 계속 분할
+		recur(x, y, size / 2); // 1사분면 방향 진행
+		recur(x, y + size / 2, size / 2); // 2사분면 방향 진행
+		recur(x + size / 2, y, size / 2); // 3사분면 방향 진행
+		recur(x + size / 2, y + size / 2, size / 2); // 4사분면 방향 진행
 	}
 
 }
