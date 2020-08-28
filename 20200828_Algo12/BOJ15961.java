@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 // 회전초밥
@@ -32,8 +33,10 @@ public class BOJ15961 {
 
 		int temp = 0;
 
-		for (int i = 0; i < K - 1; ++i)
-			belt[i + N] = belt[i];
+		for (int i = 0; i < K; i++)
+			belt[i + N] = belt[i]; // 원형이므로 K만큼 추가시킴
+
+		//System.out.println(Arrays.toString(belt));
 
 		int left = 0; // 제일 왼쪽 포인팅
 		int right = K - 1; // 제일오른쪽 포인팅
@@ -48,7 +51,7 @@ public class BOJ15961 {
 
         int answer = temp;
 
-		for (int i = 0; i < N-1; i++) { // N-1만큼 진행
+		for (int i = 0; i < N; i++) { // N-1만큼 진행
 
 			sushi[belt[left]]--; // 왼쪽 안먹은걸로시작
 
