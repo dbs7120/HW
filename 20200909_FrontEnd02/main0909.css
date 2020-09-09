@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  background-color: #f6f2cf;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Arial Black", sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+
+  border-bottom: 1px solid gray;
+  margin: 0;
+  padding: 20px;
+
+  color: #ffffff;
+  text-shadow: 4px 4px 0px #bdbdbd;
+}
+h3 {
+  font-family: "Arial Black", sans-serif;
+
+  font-weight: bold;
+  font-style: italic;
+
+  margin: 0;
+
+  color: black;
+  text-shadow: 1px 1px 0px #bdbdbd;
+}
+
+hr {
+  height: 1px;
+  background: rgb(187, 187, 187);
+  background-image: linear-gradient(left, #eee, #777, #eee);
+}
+#nav {
+  border-right: 1px solid gray;
+  width: 100px;
+  margin: 0;
+  padding: 20px;
+  padding-left: 33px;
+  list-style: none;
+  font-family: "Arial Black";
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#nav > li:before {
+  content: "\00BB";
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+article {
+  padding-left: 25px;
+}
+#photo {
+  float: left;
+}
+
+#info_table {
+  padding-left: 10px;
+  float: left;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-left: 3px solid #369;
+  margin: 20px 10px;
+}
+#info_table th {
+  width: 110px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #153d73;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+#info_table td {
+  width: 300px;
+  padding: 10px;
+  vertical-align: top;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
+#study_table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: center;
+  line-height: 1.5;
+  margin: 20px 10px;
+}
+#study_table th {
+  width: 155px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+  background: #fff;
+}
+#study_table td {
+  width: 155px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #eee;
+  font-style: italic;
+}
+
+@media (max-width: 800px) {
+  #grid {
+    display: block;
+  }
+
+  #grid ul {
+    border-right: none;
+  }
+
+  h1 {
+    border-bottom: none;
+  }
+}
