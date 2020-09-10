@@ -1,4 +1,4 @@
-var N = 45;
+var N = 6;
 var count = 0; // 페이지내 번호 갯수 저장을위한 전역 변수
 
 function make() {
