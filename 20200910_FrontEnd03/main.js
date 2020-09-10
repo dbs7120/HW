@@ -1,22 +1,20 @@
+var N = 45;
 var count = 0; // 페이지내 번호 갯수 저장을위한 전역 변수
 
 function make() {
-  if (count != 6) {
-    let lotto = new Array(6);
+  if (count != N) {
     let list = document.getElementById("list");
 
-    // call-back(recur)
+    // call-back, setInterval: 일정시간마다 반복실행
     let func = setInterval(function () {
       let randNum = Math.floor(Math.random() * 45) + 1;
       console.log(randNum);
-      for (let i = 0; i < count; i++) {
-        lotto[i] == randNum;
-      }
+
       let list_item = document.createElement("li");
       list_item.appendChild(document.createTextNode(randNum));
       list.appendChild(list_item);
       count++;
-      if (count >= 6) {
+      if (count >= N) {
         clearInterval(func);
       }
     }, 100);
