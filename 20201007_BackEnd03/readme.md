@@ -7,5 +7,5 @@
 ![.cap](cap/listName.png)<br/>
 
 <h4>제품가격검색화면(200만원이하)</h4><br/>
-![.cap](listPrice.png)<br/>
+![.cap](cap/listPrice.png)<br/>
 
