@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <title>사원목록</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1 style="text-align: center">사원 목록</h1>
+    <div id="app">
+      <table class="table">
+        <thead>
+          <th>사원 아이디</th>
+          <th>사원명</th>
+          <th>부서</th>
+          <th>직책</th>
+          <th>연봉</th>
+        </thead>
+        <tbody>
+          <tr v-for="mem in members">
+            <td>{{mem.id}}</td>
+            <td><a v-bind:href="'HW_1110_detail.html?id='+mem.id">{{mem.name}}</a></td>
+            <td>{{mem.dept}}</td>
+            <td>{{mem.pos}}</td>
+            <td>{{mem.salary}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      const member = {
+        members: [
+          {
+            id: '1',
+            name: '박구곤',
+            dept: '인사부',
+            pos: '사장',
+            salary: '60000',
+          },
+          {
+            id: '18',
+            name: '서정주',
+            dept: '기획부',
+            pos: '사원',
+            salary: '13000',
+          },
+          {
+            id: '19',
+            name: '안창환',
+            dept: '기획부',
+            pos: '사원',
+            salary: '678',
+          },
+          {
+            id: '20',
+            name: '윤정숙',
+            dept: '기획부',
+            pos: '사원',
+            salary: '750',
+          },
+          {
+            id: '21',
+            name: '장현철',
+            dept: '기획부',
+            pos: '사원',
+            salary: '8500',
+          },
+          {
+            id: '23',
+            name: '강연범',
+            dept: '영업부',
+            pos: '사원',
+            salary: '795',
+          },
+          {
+            id: '24',
+            name: '오은경',
+            dept: '기획부',
+            pos: '사원',
+            salary: '860',
+          },
+          {
+            id: '27',
+            name: '장길산',
+            dept: '영업부',
+            pos: '과장',
+            salary: '12345',
+          },
+          {
+            id: '28',
+            name: '장취산',
+            dept: '영업부',
+            pos: '사원',
+            salary: '23244',
+          },
+          {
+            id: '29',
+            name: '김상순',
+            dept: '기획부',
+            pos: '사원',
+            salary: '20000',
+          },
+          {
+            id: '30',
+            name: '장삼봉',
+            dept: '인사부',
+            pos: '사원',
+            salary: '10000',
+          },
+          {
+            id: '31',
+            name: '백소정',
+            dept: '인사부',
+            pos: '사원',
+            salary: '20000',
+          },
+          {
+            id: '32',
+            name: '조현욱',
+            dept: '회계부',
+            pos: '사원',
+            salary: '1500',
+          },
+          {
+            id: '33',
+            name: '장삼봉',
+            dept: '인사부',
+            pos: '사장',
+            salary: '100',
+          },
+        ],
+      };
+
+      new Vue({
+        el: '#app',
+        data: member,
+      });
+    </script>
+  </body>
+</html>
